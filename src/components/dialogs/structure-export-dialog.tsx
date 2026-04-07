@@ -10,7 +10,7 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog"
 import type { ExportDialogProps } from "@/types/index"
-import { Download, FileJson, FolderArchive, FolderTree, FileText } from "lucide-react"
+import { Download, FileJson, FolderArchive, FolderTree, FileText, FileCode } from "lucide-react"
 
 // Export Dialog
 export function ExportDialog({ open, onOpenChange, onExport }: ExportDialogProps) {
@@ -41,6 +41,10 @@ export function ExportDialog({ open, onOpenChange, onExport }: ExportDialogProps
                     <Button variant="outline" onClick={() => onExport?.("directory")} className="h-20 flex-col gap-2">
                         <Download className="h-5 w-5" />
                         <span className="font-semibold">Folder</span>
+                    </Button>
+                    <Button variant="outline" onClick={() => onExport?.("html")} className="h-20 flex-col gap-2">
+                        <FileCode className="h-5 w-5" />
+                        <span className="font-semibold">HTML</span>
                     </Button>
                 </div>
                 <DialogFooter>

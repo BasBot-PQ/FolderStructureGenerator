@@ -50,7 +50,7 @@ export interface DialogProps extends BaseDialogProps {
 
 // Export Dialog Props
 export interface ExportDialogProps extends BaseDialogProps {
-    onExport?: (format: "json" | "text" | "tree" | "zip" | "directory") => void
+    onExport?: (format: "json" | "text" | "tree" | "zip" | "directory" | "html") => void
 }
 
 // Structure Preview Dialog

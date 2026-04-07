@@ -1,6 +1,7 @@
 import type { FileItem } from "@/types/index"
 import { downloadAsZip, downloadAsDirectory } from "@/utils/zip-exporter"
 import { generateStructureDisplay, generateTreeView } from "./display"
+import { generateHtmlViewer } from "./html-exporter"
 
 /**
  * Find a selected folder in the structure tree
@@ -23,7 +24,7 @@ const findSelectedFolder = (structure: FileItem, selectedItems: string[]): FileI
     return null
 }
 
-export type ExportFormat = "json" | "text" | "tree" | "zip" | "directory"
+export type ExportFormat = "json" | "text" | "tree" | "zip" | "directory" | "html"
 
 /**
  * Export the folder structure in various formats
@@ -66,6 +67,11 @@ export const exportStructure = (
             case "text":
                 content = generateStructureDisplay(structure)
                 filename = "project-structure.txt"
+                break
+            case "html":
+                content = generateHtmlViewer(structure)
+                filename = "project-structure-viewer.html"
+                mimeType = "text/html"
                 break
         }
 
